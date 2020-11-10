@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.Calendar
 
-class ApodUseCase {
-    private val repository = ApodRepository()
+class ApodUseCase(private val repository: ApodRepository) {
 
     private fun getListDate(date: String): List<String> {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -24,7 +23,7 @@ class ApodUseCase {
         return listDate
     }
 
-    suspend fun getApodList(date: String): List<ApodResult> {
+    suspend fun getApodList(date: String): MutableList<ApodResult> {
         val listApod = mutableListOf<ApodResult>()
         val listDate = getListDate(date)
 
