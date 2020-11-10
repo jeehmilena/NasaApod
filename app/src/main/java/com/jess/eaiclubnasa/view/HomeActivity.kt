@@ -20,7 +20,6 @@ import com.jess.eaiclubnasa.viewmodel.state.ApodState
 import kotlinx.coroutines.Dispatchers
 
 class HomeActivity : AppCompatActivity() {
-    private var page = 1
     private lateinit var recyclerViewApod: RecyclerView
     private lateinit var loading: ProgressBar
     private var listApodResult: MutableList<ApodResult> = mutableListOf()
@@ -91,7 +90,6 @@ class HomeActivity : AppCompatActivity() {
                 if (totalItemCount > 0 && ultimoItem &&
                     viewModel.viewEvent.value == ApodEvent.Loading(false)
                 ) {
-                    page++
                     viewModel.interpret(ApodInteractor.GetListApod(listApodResult[lastVisible-1].date))
                 }
             }

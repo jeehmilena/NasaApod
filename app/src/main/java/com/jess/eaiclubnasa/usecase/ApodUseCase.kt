@@ -16,7 +16,7 @@ class ApodUseCase(private val repository: ApodRepository) {
         val data = dateFormat.parse(date)
         currentCalendar.time = data
 
-        for (i in 1..5) {
+        for (i in 0..5) {
             currentCalendar.add(Calendar.DATE, -1)
             val toDate = dateFormat.format(currentCalendar.time)
             listDate.add(toDate)
