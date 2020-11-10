@@ -39,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         initViews()
         initViewModel()
+        scrollPaginationList()
     }
 
     private fun initViews() {
@@ -71,7 +72,6 @@ class HomeActivity : AppCompatActivity() {
         adapter.update(listApod)
         recyclerViewApod.adapter = adapter
         recyclerViewApod.layoutManager = LinearLayoutManager(this)
-        scrollPaginationList()
     }
 
     private fun scrollPaginationList() {
@@ -90,7 +90,7 @@ class HomeActivity : AppCompatActivity() {
                 if (totalItemCount > 0 && ultimoItem &&
                     viewModel.viewEvent.value == ApodEvent.Loading(false)
                 ) {
-                    viewModel.interpret(ApodInteractor.GetListApod(listApodResult[lastVisible-1].date))
+                    viewModel.interpret(ApodInteractor.GetListApod(listApodResult[5].date))
                 }
             }
         })
