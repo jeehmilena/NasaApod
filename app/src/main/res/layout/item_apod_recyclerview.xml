@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/apod_image"
+            android:id="@+id/iv_apod"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_230"
             android:contentDescription="@string/apod_description"
@@ -22,7 +22,7 @@
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/apod_title"
+            android:id="@+id/tv_apod"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8"
@@ -35,7 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/apod_image"
+            app:layout_constraintTop_toBottomOf="@+id/iv_apod"
             tools:text="Astronomy Picture of the Day" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
