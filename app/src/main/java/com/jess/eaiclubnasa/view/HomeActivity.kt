@@ -3,6 +3,7 @@ package com.jess.eaiclubnasa.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,8 +20,10 @@ import com.jess.eaiclubnasa.viewmodel.state.ApodState
 import kotlinx.coroutines.Dispatchers
 
 class HomeActivity : AppCompatActivity() {
+    private var page = 1
     private lateinit var recyclerViewApod: RecyclerView
     private lateinit var loading: ProgressBar
+    private var listApodResult: MutableList<ApodResult> = mutableListOf()
     private val viewModel: ApodViewModel by lazy {
         val factory = ApodViewModelFactory(Dispatchers.IO, ApodRepository())
         ViewModelProvider(this, factory).get(ApodViewModel::class.java)
@@ -65,9 +68,34 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showList(listApod: MutableList<ApodResult>) {
+        listApodResult = listApod
         adapter.update(listApod)
         recyclerViewApod.adapter = adapter
         recyclerViewApod.layoutManager = LinearLayoutManager(this)
+        scrollPaginationList()
+    }
+
+    private fun scrollPaginationList() {
+
+        recyclerViewApod.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(
+                @NonNull recyclerView: RecyclerView, dx: Int, dy: Int
+            ) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                val totalItemCount: Int = layoutManager?.itemCount ?: 0
+                val lastVisible: Int = layoutManager?.findLastVisibleItemPosition() ?: 0
+                val ultimoItem = lastVisible + 5 >= totalItemCount
+
+                if (totalItemCount > 0 && ultimoItem &&
+                    viewModel.viewEvent.value == ApodEvent.Loading(false)
+                ) {
+                    page++
+                    viewModel.interpret(ApodInteractor.GetListApod(listApodResult[lastVisible-1].date))
+                }
+            }
+        })
     }
 
     private fun showLoading(status: Boolean) {

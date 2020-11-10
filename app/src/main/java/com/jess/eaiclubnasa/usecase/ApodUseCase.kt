@@ -1,5 +1,6 @@
 package com.jess.eaiclubnasa.usecase
 
+import com.jess.eaiclubnasa.Constants.DATE_PATTERN
 import com.jess.eaiclubnasa.model.ApodResult
 import com.jess.eaiclubnasa.repository.ApodRepository
 import java.text.SimpleDateFormat
@@ -9,7 +10,7 @@ import java.util.Calendar
 class ApodUseCase(private val repository: ApodRepository) {
 
     private fun getListDate(date: String): List<String> {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dateFormat = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
         val currentCalendar = Calendar.getInstance()
         val listDate = arrayListOf<String>()
         val data = dateFormat.parse(date)
