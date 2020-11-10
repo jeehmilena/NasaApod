@@ -39,7 +39,7 @@ class ApodViewModel(
                 event.value = ApodEvent.Loading(false)
             } catch (ex: Exception) {
                 state.value =
-                    ApodState.ApodListError("Ops! Parece que tivemos algum problema =/\nTente novamente!")
+                    ApodState.ApodListError("Ops! Parece que tivemos algum problema! \nTente novamente!")
             }
         }
     }

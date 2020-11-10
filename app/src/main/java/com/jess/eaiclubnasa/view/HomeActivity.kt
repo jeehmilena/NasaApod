@@ -2,7 +2,6 @@ package com.jess.eaiclubnasa.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -17,12 +16,10 @@ import com.jess.eaiclubnasa.viewmodel.ApodViewModelFactory
 import com.jess.eaiclubnasa.viewmodel.event.ApodEvent
 import com.jess.eaiclubnasa.viewmodel.interactor.ApodInteractor
 import com.jess.eaiclubnasa.viewmodel.state.ApodState
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.Dispatchers
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var recyclerViewApod: RecyclerView
-    private lateinit var loading: ProgressBar
-    private var listApodResult: MutableList<ApodResult> = mutableListOf()
     private val viewModel: ApodViewModel by lazy {
         val factory = ApodViewModelFactory(Dispatchers.IO, ApodRepository())
         ViewModelProvider(this, factory).get(ApodViewModel::class.java)
@@ -37,14 +34,12 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        initViews()
+
+        rv_apod.adapter = adapter
+        rv_apod.layoutManager = LinearLayoutManager(this)
+
         initViewModel()
         scrollPaginationList()
-    }
-
-    private fun initViews() {
-        recyclerViewApod = findViewById(R.id.rv_apod)
-        loading = findViewById(R.id.loading)
     }
 
     private fun initViewModel() {
@@ -68,15 +63,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun showList(listApod: MutableList<ApodResult>) {
-        listApodResult = listApod
         adapter.update(listApod)
-        recyclerViewApod.adapter = adapter
-        recyclerViewApod.layoutManager = LinearLayoutManager(this)
     }
 
     private fun scrollPaginationList() {
 
-        recyclerViewApod.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        rv_apod.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(
                 @NonNull recyclerView: RecyclerView, dx: Int, dy: Int
             ) {
@@ -90,20 +82,16 @@ class HomeActivity : AppCompatActivity() {
                 if (totalItemCount > 0 && ultimoItem &&
                     viewModel.viewEvent.value == ApodEvent.Loading(false)
                 ) {
-                    viewModel.interpret(ApodInteractor.GetListApod(listApodResult[5].date))
+                    viewModel.interpret(ApodInteractor.GetListApod(adapter.getLastItem().date))
                 }
             }
         })
     }
 
     private fun showLoading(status: Boolean) {
-        when {
-            status -> {
-                loading.visibility = View.VISIBLE
-            }
-            else -> {
-                loading.visibility = View.GONE
-            }
-        }
+        pb_loading.visibility = if (status)
+            View.VISIBLE
+        else
+            View.GONE
     }
 }

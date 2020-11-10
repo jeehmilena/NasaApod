@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jess.eaiclubnasa.R
 import com.jess.eaiclubnasa.model.ApodResult
-import com.squareup.picasso.Picasso
 
 class ApodAdapter(var listApod: MutableList<ApodResult>) :
     RecyclerView.Adapter<ApodAdapter.ViewHolder>() {
@@ -32,7 +32,8 @@ class ApodAdapter(var listApod: MutableList<ApodResult>) :
         private var apodTitle = itemView.findViewById<TextView>(R.id.tv_apod)
 
         fun onBind(apodResult: ApodResult) {
-            Picasso.get().load(apodResult.url).into(apodImage)
+            Glide.with(itemView.context).load(apodResult.url).placeholder(R.drawable.logo)
+                .into(apodImage)
             apodTitle.text = apodResult.title
         }
     }
@@ -40,10 +41,13 @@ class ApodAdapter(var listApod: MutableList<ApodResult>) :
     fun update(list: MutableList<ApodResult>) {
 
         if (this.listApod.isEmpty()) {
-            this.listApod = list as ArrayList<ApodResult>
+            this.listApod = list
         } else {
             this.listApod.addAll(list)
         }
         notifyDataSetChanged()
     }
+
+    fun getLastItem() = listApod.last()
+
 }

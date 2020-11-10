@@ -10,9 +10,9 @@ import java.util.Calendar
 class ApodUseCase(private val repository: ApodRepository) {
 
     private fun getListDate(date: String): List<String> {
+        val listDate = arrayListOf<String>()
         val dateFormat = SimpleDateFormat(DATE_PATTERN, Locale.getDefault())
         val currentCalendar = Calendar.getInstance()
-        val listDate = arrayListOf<String>()
         val data = dateFormat.parse(date)
         currentCalendar.time = data
 
@@ -25,14 +25,8 @@ class ApodUseCase(private val repository: ApodRepository) {
     }
 
     suspend fun getApodList(date: String): MutableList<ApodResult> {
-        val listApod = mutableListOf<ApodResult>()
-        val listDate = getListDate(date)
-
-        listDate.forEach {
-            val apod = repository.getApod(it)
-            listApod.add(apod)
-        }
-
-        return listApod
+        return getListDate(date).map {
+            repository.getApod(it)
+        }.toMutableList()
     }
 }
