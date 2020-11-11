@@ -1,7 +1,10 @@
 package com.jess.eaiclubnasa.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ApodResult(
     @SerializedName("date")
     val date: String,
@@ -17,4 +20,4 @@ data class ApodResult(
     val title: String,
     @SerializedName("url")
     val url: String
-)
+) : Parcelable

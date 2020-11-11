@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Astronomy Pictures of the Days</string>
     <string name="apod_description">Astronomy Picture of the Day</string>
+    <string name="astronomy_picture_of_the_day">Astronomy Picture of the Day</string>
 </resources>

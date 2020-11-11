@@ -1,4 +1,4 @@
-package com.jess.eaiclubnasa.view
+package com.jess.eaiclubnasa.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,8 @@ import com.jess.eaiclubnasa.ApodUtils.formatDate
 import com.jess.eaiclubnasa.R
 import com.jess.eaiclubnasa.model.ApodResult
 
-class ApodAdapter(var listApod: MutableList<ApodResult>) :
+class ApodAdapter(var listApod: MutableList<ApodResult>,
+                  val onClick: (item: ApodResult) -> Unit) :
     RecyclerView.Adapter<ApodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,6 +27,9 @@ class ApodAdapter(var listApod: MutableList<ApodResult>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(listApod[position])
+        holder.itemView.setOnClickListener {
+            onClick(listApod[position])
+        }
     }
 
     fun update(list: MutableList<ApodResult>) {
