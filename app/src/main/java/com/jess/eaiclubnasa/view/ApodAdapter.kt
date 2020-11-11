@@ -28,6 +28,18 @@ class ApodAdapter(var listApod: MutableList<ApodResult>) :
         holder.onBind(listApod[position])
     }
 
+    fun update(list: MutableList<ApodResult>) {
+
+        if (this.listApod.isEmpty()) {
+            this.listApod = list
+        } else {
+            this.listApod.addAll(list)
+        }
+        notifyDataSetChanged()
+    }
+
+    fun getLastItem() = listApod.last()
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var apodImage = itemView.findViewById<ImageView>(R.id.iv_apod)
         private var apodTitle = itemView.findViewById<TextView>(R.id.tv_apod)
@@ -40,16 +52,4 @@ class ApodAdapter(var listApod: MutableList<ApodResult>) :
             apodDate.text = formatDate(apodResult.date)
         }
     }
-
-    fun update(list: MutableList<ApodResult>) {
-
-        if (this.listApod.isEmpty()) {
-            this.listApod = list
-        } else {
-            this.listApod.addAll(list)
-        }
-        notifyDataSetChanged()
-    }
-
-    fun getLastItem() = listApod.last()
 }

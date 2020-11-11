@@ -10,8 +10,8 @@ object ApodUtils {
         val listDate = arrayListOf<String>()
         val dateFormat = SimpleDateFormat(DATE_PATTERN_YEAR_MONTH_DAY, Locale.getDefault())
         val currentCalendar = Calendar.getInstance()
-        val data = dateFormat.parse(date)
-        currentCalendar.time = data
+        val newDate = dateFormat.parse(date)
+        currentCalendar.time = newDate
 
         for (i in 0..5) {
             currentCalendar.add(Calendar.DATE, -1)
@@ -21,14 +21,13 @@ object ApodUtils {
         return listDate
     }
 
-    fun getCurrentDate(): String {
-        return SimpleDateFormat(DATE_PATTERN_YEAR_MONTH_DAY, Locale.getDefault()).format(Date())
-    }
+    fun getCurrentDate() =
+        SimpleDateFormat(DATE_PATTERN_YEAR_MONTH_DAY, Locale.getDefault()).format(Date())
 
     fun formatDate(date: String): String {
         val dateFormat = SimpleDateFormat(DATE_PATTERN_YEAR_MONTH_DAY, Locale.getDefault())
-        val data = dateFormat.parse(date)
+        val newDate = dateFormat.parse(date)
         val dateToFormat = SimpleDateFormat(DATE_PATTERN_DAY_MONTH_YEAR, Locale.getDefault())
-        return dateToFormat.format(data)
+        return dateToFormat.format(newDate)
     }
 }
