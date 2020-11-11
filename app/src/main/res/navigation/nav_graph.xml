@@ -18,5 +18,14 @@
         android:id="@+id/detailFragment"
         android:name="com.jess.eaiclubnasa.view.fragment.DetailFragment"
         android:label="@string/astronomy_picture_of_the_day"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_pictureZoomFragment"
+            app:destination="@id/pictureZoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pictureZoomFragment"
+        android:name="com.jess.eaiclubnasa.view.fragment.PictureZoomFragment"
+        android:label="@string/picture_zoom"
+        tools:layout="@layout/fragment_picture_zoom" />
 </navigation>
