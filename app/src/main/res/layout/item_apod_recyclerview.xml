@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/margin_8">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/margin_16"
             android:layout_marginEnd="@dimen/margin_8"
             android:layout_marginRight="@dimen/margin_8"
-            android:textColor="@color/yellow_ffb74d"
+            android:textColor="@color/yellow_c88719"
             android:textSize="@dimen/text_size_14"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8"
             android:layout_marginBottom="@dimen/margin_16"
-            android:textColor="@color/yellow_ffb74d"
+            android:textColor="@color/yellow_c88719"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_apod"

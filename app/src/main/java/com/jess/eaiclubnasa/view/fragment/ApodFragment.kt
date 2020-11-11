@@ -9,7 +9,7 @@ import androidx.annotation.NonNull
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jess.eaiclubnasa.ApodUtils
@@ -81,7 +81,7 @@ class ApodFragment : Fragment() {
 
     private fun apodDetail(apodResult: ApodResult) {
         val bundle = bundleOf(APOD_DETAIL_KEY to apodResult)
-        NavHostFragment.findNavController(this).navigate(
+        findNavController(this).navigate(
             R.id.action_apodFragment_to_detailFragment, bundle
         )
     }
