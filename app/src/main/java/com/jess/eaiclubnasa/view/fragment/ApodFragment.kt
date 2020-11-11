@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.jess.eaiclubnasa.ApodUtils
 import com.jess.eaiclubnasa.Constants.APOD_DETAIL_KEY
 import com.jess.eaiclubnasa.R
@@ -51,6 +52,12 @@ class ApodFragment : Fragment() {
         rv_apod.adapter = adapter
         rv_apod.layoutManager = LinearLayoutManager(context)
 
+        srl_apod.setOnRefreshListener {
+            adapter.clearList()
+            viewModel.interpret(ApodInteractor.GetListApod(ApodUtils.getCurrentDate()))
+            srl_apod.isRefreshing = false
+        }
+
         initViewModel()
         scrollPaginationList()
     }
@@ -60,6 +67,7 @@ class ApodFragment : Fragment() {
             state?.let {
                 when (it) {
                     is ApodState.ApodListSuccess -> showList(it.list)
+                    is ApodState.ApodListError -> showError(it.messageError)
                 }
             }
         })
@@ -73,6 +81,10 @@ class ApodFragment : Fragment() {
         })
 
         viewModel.interpret(ApodInteractor.GetListApod(ApodUtils.getCurrentDate()))
+    }
+
+    private fun showError(messageError: String) {
+        Snackbar.make(rv_apod, messageError, Snackbar.LENGTH_LONG).show()
     }
 
     private fun showList(listApod: MutableList<ApodResult>) {

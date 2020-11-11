@@ -44,6 +44,8 @@ class ApodAdapter(var listApod: MutableList<ApodResult>,
 
     fun getLastItem() = listApod.last()
 
+    fun clearList() = listApod.clear()
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var apodImage = itemView.findViewById<ImageView>(R.id.iv_apod)
         private var apodTitle = itemView.findViewById<TextView>(R.id.tv_apod)
