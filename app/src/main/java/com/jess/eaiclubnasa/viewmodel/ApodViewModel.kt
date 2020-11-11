@@ -3,8 +3,8 @@ package com.jess.eaiclubnasa.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jess.eaiclubnasa.ApodUtils
 import com.jess.eaiclubnasa.repository.ApodRepository
-import com.jess.eaiclubnasa.usecase.ApodUseCase
 import com.jess.eaiclubnasa.viewmodel.event.ApodEvent
 import com.jess.eaiclubnasa.viewmodel.interactor.ApodInteractor
 import com.jess.eaiclubnasa.viewmodel.state.ApodState
@@ -14,11 +14,10 @@ import kotlinx.coroutines.withContext
 
 class ApodViewModel(
     private val ioDispatcher: CoroutineDispatcher,
-    repository: ApodRepository
+    val repository: ApodRepository
 ) : ViewModel() {
     private var state: MutableLiveData<ApodState> = MutableLiveData()
     private var event: MutableLiveData<ApodEvent> = MutableLiveData()
-    private val useCase = ApodUseCase(repository)
     val viewState = state
     val viewEvent = event
 
@@ -33,7 +32,9 @@ class ApodViewModel(
             event.value = ApodEvent.Loading(true)
             try {
                 val listApodResult = withContext(ioDispatcher) {
-                    useCase.getApodList(date)
+                    ApodUtils.getLastFiveDays(date).map {
+                        repository.getApod(it)
+                    }.toMutableList()
                 }
                 state.value = ApodState.ApodListSuccess(listApodResult)
                 event.value = ApodEvent.Loading(false)

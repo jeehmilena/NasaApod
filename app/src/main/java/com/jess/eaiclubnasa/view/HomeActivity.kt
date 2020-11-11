@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jess.eaiclubnasa.ApodUtils.getCurrentDate
 import com.jess.eaiclubnasa.R
 import com.jess.eaiclubnasa.model.ApodResult
 import com.jess.eaiclubnasa.repository.ApodRepository
@@ -59,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.interpret(ApodInteractor.GetListApod("2020-10-10"))
+        viewModel.interpret(ApodInteractor.GetListApod(getCurrentDate()))
     }
 
     private fun showList(listApod: MutableList<ApodResult>) {
