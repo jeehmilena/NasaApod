@@ -1,15 +1,9 @@
 package com.jess.eaiclubnasa.home
 
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.jess.eaiclubnasa.ApodService
-import com.jess.eaiclubnasa.R
 import com.jess.eaiclubnasa.robots.HomeRobot
 import com.jess.eaiclubnasa.view.HomeActivity
-import kotlinx.android.synthetic.main.fragment_apod.view.*
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
@@ -40,16 +34,31 @@ class HomeTest {
     }
 
     @Test
-    fun testIsListFragmentVisibleOnApplaunch() {
+    fun testNavigateListHome(){
         robot.setRequest()
             .startActivity()
             .checkIsDisplayedRecyclerView()
     }
 
     @Test
-    fun testSelectedItemisDetailFragmentVIsible() {
+    fun testScrollList() {
         robot.setRequest()
             .startActivity()
-            .testSelectedItemisDetailFragmentVisible()
+            .checkInfinitScroll()
+    }
+
+    @Test
+    fun testNavigationToDetail(){
+        robot.setRequest()
+            .startActivity()
+            .checkDetailIsShow()
+    }
+
+    @Test
+    fun testNavigateToFragmentZoom(){
+        robot.setRequest()
+            .startActivity()
+            .checkDetailIsShow()
+            .checkZoomIsShow()
     }
 }

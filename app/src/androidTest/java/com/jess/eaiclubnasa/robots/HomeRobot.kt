@@ -2,35 +2,22 @@ package com.jess.eaiclubnasa.robots
 
 import android.content.Context
 import android.content.Intent
-import android.view.View
-import android.view.View.VISIBLE
-import androidx.test.espresso.*
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.espresso.util.TreeIterables
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.jess.eaiclubnasa.ApodAPI
 import com.jess.eaiclubnasa.R
+import com.jess.eaiclubnasa.utils.HomeUtil
 import com.jess.eaiclubnasa.view.HomeActivity
-import com.jess.eaiclubnasa.view.adapter.ApodAdapter
-import kotlinx.android.synthetic.main.fragment_apod.*
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
 import java.io.IOException
 import java.io.InputStream
-import java.lang.Thread.sleep
 
 class HomeRobot(
     private val mockWebServer: MockWebServer?,
@@ -88,24 +75,28 @@ class HomeRobot(
             .check(matches(isDisplayed()))
     }
 
-    fun testSelectedItemisDetailFragmentVisible() {
+    fun checkDetailIsShow(): HomeRobot{
+        HomeUtil.waitForElementId(R.id.rv_apod, 1)
+        HomeUtil.clickRecyclerViewItem(R.id.rv_apod, 0)
+        HomeUtil.checkContainsTextIsDisplayed("Details of the crazed cracks criss-crossing Europa's")
 
-        onView(withId(R.id.rv_apod))
-            .check(matches(isDisplayed()))
-
-        sleep(1000)
-
-        onView(withId(R.id.rv_apod)).perform(
-            RecyclerViewActions.scrollToPosition<ApodAdapter.ViewHolder>(
-                1
-            ), click()
-        )
-
-        sleep(1000)
-
-        onView(withId(R.id.tv_apod_detail)).check(matches(isDisplayed()))
-
-        onView(withText("Galileo Explores Europa")).check(matches(isDisplayed()))
+        return this
     }
 
+    fun checkZoomIsShow(): HomeRobot{
+        HomeUtil.clickById(R.id.iv_apod_detail)
+        HomeUtil.checkTextIsDisplayed("Picture zoom")
+        HomeUtil.checkIdIsDisplayed(R.id.iv_apod_image_zoom)
+
+        return this
+    }
+
+    fun checkInfinitScroll(): HomeRobot{
+        HomeUtil.waitForElementId(R.id.rv_apod, 1)
+        HomeUtil.scrollToRecyclerViewLastPosition(activityTestRule.activity, R.id.rv_apod)
+        HomeUtil.scroll(R.id.rv_apod, 8)
+        HomeUtil.checkTextIsDisplayedOnRecyclerViewPosition(R.id.rv_apod, 8, "Galileo Explores Europa")
+
+        return this
+    }
 }
