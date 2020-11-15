@@ -1,18 +1,16 @@
 package com.jess.eaiclubnasa.view.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler
 import com.bumptech.glide.Glide
 import com.jess.eaiclubnasa.Constants
 import com.jess.eaiclubnasa.R
-import com.jess.eaiclubnasa.model.ApodResult
-import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_picture_zoom.*
 
 class PictureZoomFragment : Fragment() {

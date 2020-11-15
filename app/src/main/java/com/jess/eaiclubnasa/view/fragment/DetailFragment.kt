@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler
 import com.bumptech.glide.Glide
 import com.jess.eaiclubnasa.Constants
 import com.jess.eaiclubnasa.R
