@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.jess.eaiclubnasa.home.HomeTest" tests="4" failures="4" errors="0" skipped="0" time="13503.0" timestamp="2020-11-15T01:21:43" hostname="localhost">
+  <properties>
+    <property name="device" value="Pixel_3_API_28(AVD) - 9" />
+    <property name="flavor" value="debugAndroidTest" />
+    <property name="project" value="app" />
+  </properties>
+  <testcase name="testNavigateListHome" classname="com.jess.eaiclubnasa.home.HomeTest" time="34.33">
+    <failure>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:12)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkIsDisplayedRecyclerView(HomeRobot.kt:75)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigateListHome(HomeTest.kt:40)
+</failure>
+  </testcase>
+  <testcase name="testScrollList" classname="com.jess.eaiclubnasa.home.HomeTest" time="33.372">
+    <failure>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkInfinitScroll(HomeRobot.kt:95)
+at com.jess.eaiclubnasa.home.HomeTest.testScrollList(HomeTest.kt:47)
+</failure>
+  </testcase>
+  <testcase name="testNavigateToFragmentZoom" classname="com.jess.eaiclubnasa.home.HomeTest" time="33.177">
+    <failure>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkDetailIsShow(HomeRobot.kt:79)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigateToFragmentZoom(HomeTest.kt:61)
+</failure>
+  </testcase>
+  <testcase name="testNavigationToDetail" classname="com.jess.eaiclubnasa.home.HomeTest" time="33.589">
+    <failure>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkDetailIsShow(HomeRobot.kt:79)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigationToDetail(HomeTest.kt:54)
+</failure>
+  </testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.jess.eaiclubnasa.home.HomeTest" tests="4" failures="0" errors="0" skipped="0" time="6.392" timestamp="2020-11-15T01:18:10" hostname="localhost">
+  <properties>
+    <property name="device" value="motorola one action - 10" />
+    <property name="flavor" value="debugAndroidTest" />
+    <property name="project" value="app" />
+  </properties>
+  <testcase name="testNavigateListHome" classname="com.jess.eaiclubnasa.home.HomeTest" time="0.825" />
+  <testcase name="testScrollList" classname="com.jess.eaiclubnasa.home.HomeTest" time="1.431" />
+  <testcase name="testNavigateToFragmentZoom" classname="com.jess.eaiclubnasa.home.HomeTest" time="1.995" />
+  <testcase name="testNavigationToDetail" classname="com.jess.eaiclubnasa.home.HomeTest" time="1.585" />
+</testsuite>

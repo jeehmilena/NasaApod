@@ -1,0 +1,7 @@
+#Sat Nov 14 22:17:57 BRT 2020
+base.0=/Users/jessicacorrea/Documents/AndroidProjects/EaiclubDesafio/app/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/jessicacorrea/Documents/AndroidProjects/EaiclubDesafio/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/classes.dex

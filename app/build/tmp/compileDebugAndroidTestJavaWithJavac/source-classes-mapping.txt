@@ -1,0 +1,2 @@
+com/jess/eaiclubnasa/test/BuildConfig.java
+ com.jess.eaiclubnasa.test.BuildConfig

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Test results - Class com.jess.eaiclubnasa.home.HomeTest</title>
+<link href="css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<script src="js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.jess.eaiclubnasa.home.HomeTest</h1>
+<div class="breadcrumbs">
+<a href="index.html">all</a> &gt; 
+<a href="com.jess.eaiclubnasa.home.html">com.jess.eaiclubnasa.home</a> &gt; HomeTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">4</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">2m20.30s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Devices</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testNavigateListHome"></a>
+<h3 class="failures">testNavigateListHome [Pixel_3_API_28(AVD) - 9] (on 1/2 devices)</h3>
+<span class="code">
+<pre>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:12)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkIsDisplayedRecyclerView(HomeRobot.kt:75)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigateListHome(HomeTest.kt:40)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testNavigateToFragmentZoom"></a>
+<h3 class="failures">testNavigateToFragmentZoom [Pixel_3_API_28(AVD) - 9] (on 1/2 devices)</h3>
+<span class="code">
+<pre>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkDetailIsShow(HomeRobot.kt:79)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigateToFragmentZoom(HomeTest.kt:61)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testNavigationToDetail"></a>
+<h3 class="failures">testNavigationToDetail [Pixel_3_API_28(AVD) - 9] (on 1/2 devices)</h3>
+<span class="code">
+<pre>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkDetailIsShow(HomeRobot.kt:79)
+at com.jess.eaiclubnasa.home.HomeTest.testNavigationToDetail(HomeTest.kt:54)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testScrollList"></a>
+<h3 class="failures">testScrollList [Pixel_3_API_28(AVD) - 9] (on 1/2 devices)</h3>
+<span class="code">
+<pre>androidx.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you forget to launch the activity. (test.getActivity() or similar)?
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:11)
+at androidx.test.espresso.ViewInteraction.perform(ViewInteraction.java:4)
+at com.jess.eaiclubnasa.utils.HomeUtil.waitForElementId(HomeUtil.kt:43)
+at com.jess.eaiclubnasa.robots.HomeRobot.checkInfinitScroll(HomeRobot.kt:95)
+at com.jess.eaiclubnasa.home.HomeTest.testScrollList(HomeTest.kt:47)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Pixel_3_API_28(AVD) - 9</th>
+<th>motorola one action - 10</th>
+</tr>
+</thead>
+<tr>
+<td>testNavigateListHome</td>
+<td class="failures">failed (34.330s)</td>
+<td class="success">passed (0.825s)</td>
+</tr>
+<tr>
+<td>testNavigateToFragmentZoom</td>
+<td class="failures">failed (33.177s)</td>
+<td class="success">passed (1.995s)</td>
+</tr>
+<tr>
+<td>testNavigationToDetail</td>
+<td class="failures">failed (33.589s)</td>
+<td class="success">passed (1.585s)</td>
+</tr>
+<tr>
+<td>testScrollList</td>
+<td class="failures">failed (33.372s)</td>
+<td class="success">passed (1.431s)</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Devices</h2>
+<table>
+<thead>
+<tr>
+<th>Devices</th>
+<th>Tests</th>
+<th>Failures</th>
+<th>Duration</th>
+<th>Success rate</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">Pixel_3_API_28(AVD) - 9</td>
+<td>4</td>
+<td>4</td>
+<td>2m14.47s</td>
+<td>0%</td>
+</tr>
+<tr>
+<td class="success">motorola one action - 10</td>
+<td>4</td>
+<td>0</td>
+<td>5.836s</td>
+<td>100%</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>Generated by 
+<a href="http://www.gradle.org">Gradle 6.5</a> at 14/11/2020 22:21:46</p>
+</div>
+</div>
+</body>
